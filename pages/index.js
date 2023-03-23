@@ -2,7 +2,7 @@ import Head from 'next/head'
 import { Inter } from 'next/font/google'
 import { useEffect } from 'react'
 import { useState } from 'react'
-import { Recipes } from '../components'
+import { Card, } from '../components'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -56,14 +56,18 @@ export default function Home() {
       search
       </button>
       </form>
+       
 
+        <div className='grid grid-cols-1 lg:grid-cols-4 gap-5'>
         {recipes.map(recipe => (
-          <Recipes 
+          <Card 
           key={recipe.recipe.label}
           title={recipe.recipe.label} calories={recipe.recipe.calories} 
-          image={recipe.recipe.image}           ingredients = {recipe.recipe.ingredients}
+          image={recipe.recipe.image} ingredients = {recipe.recipe.ingredients}
           />
   ))}
+        </div>
+       
 
       </section>
       </div>
